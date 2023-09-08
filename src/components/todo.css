@@ -1,0 +1,58 @@
+
+.main_todo
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.todo
+{
+    background-image: linear-gradient(rgb(255, 252, 252), rgb(146, 176, 204));
+    width: 500px;
+    height: 70vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.tabs
+{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px 20px 0px 0px;
+    height: 50px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+}
+.tabs-color
+{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(197, 40, 40);
+    border-radius: 20px 20px 0px 0px;
+    height: 50px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+}
+.bar
+{
+    height: 23px;
+    width: 2px;
+    background-color: lightgray;
+}
+
+.Active
+{
+    cursor: pointer;
+   height: 50px;
+   border-radius: 20px 0px 0px 0px;
+}
+
+.completed
+{
+    cursor: pointer;
+    height: 50px;
+   border-radius: 20px 0px 0px 0px;
+  
+}
