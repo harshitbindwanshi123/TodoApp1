@@ -2,7 +2,31 @@
   "todos": [
     {
       "id": 1,
-      "todo": "Buy groceries"
+      "todo": "json-server"
+    },
+    {
+      "id": 1,
+      "todo": "json-server"
+    },
+    {
+      "id": 1,
+      "todo": "json-server"
+    },
+    {
+      "id": 1,
+      "todo": "json-server"
+    },
+    {
+      "id": 78,
+      "todo": "holay ?"
+    },
+    {
+      "id": 44,
+      "todo": "hello"
+    },
+    {
+      "id": 28,
+      "todo": "chay pine jana hai ."
     }
   ]
 }

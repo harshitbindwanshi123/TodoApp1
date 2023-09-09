@@ -1,26 +1,53 @@
 import React, { useEffect, useState } from 'react'
 import './activetodo.css'
 import { AiFillDelete } from "react-icons/ai";
+import axios from 'axios';
 
 
 
 const ActiveTodos = () => {
     const [todos,setTodos]=useState([])
     const [todo,setTodo]=useState([])  
+    const [loading, setLoading] = useState(true);
+    const BASE_URL='http://localhost:5000/todos'
 
 
-    const addTodo = async() => {
-        setTodos([...todos,{id:"3",todo:todo}])
-        setTodo("")
-
-        await fetch('http://localhost:8000/todos', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({id:Math.random(),todo:todo}), 
+    useEffect(()=>
+    {
+      setLoading(true);
+      axios.get(BASE_URL)
+      .then((response) => {       
+        setTodos(response.data);
+        console.log(response.data)
+        setLoading(false);
+      })
+      .catch((error) => {       
+        console.error('Error fetching data:', error);
+        setLoading(false);
       });
+    },[todo])
+
+
+
+
+    const addTodo = () => {    
+      console.log(todo)       
+         axios.post(`${BASE_URL}`,{id:Math.floor(Math.random()*100),todo:todo})
+        .then((response) => {       
+          // setTodos(response.data);
+          console.log(response.data)          
+          setTodo("")
+        })
+        .catch((error) => {      
+          console.error('Error fetching data:', error);
+         
+        });     
      }
+
+
+
+
+
      const deleteTodo=async(id)=>
      {
       console.log(id)
@@ -31,14 +58,7 @@ const ActiveTodos = () => {
         },        
       });
      }
-useEffect(()=>
-{
-  fetch('http://localhost:8000/todos').then(
-    responce=>responce.json()
-  ).then(
-    responce=>setTodos(responce)
-  ) 
-},[todo,todos])
+
 
   return (
     <div className='todos_main'>
