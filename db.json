@@ -1,32 +1,20 @@
 {
   "todos": [
     {
-      "id": 1,
-      "todo": "json-server"
+      "id": 36,
+      "name": "sdfsdfsd"
     },
     {
-      "id": 1,
-      "todo": "json-server"
+      "id": 16,
+      "name": "hello i  am going"
     },
     {
-      "id": 1,
-      "todo": "json-server"
-    },
-    {
-      "id": 1,
-      "todo": "json-server"
-    },
-    {
-      "id": 78,
-      "todo": "holay ?"
+      "id": 54,
+      "name": "hmm kya hmm"
     },
     {
       "id": 44,
-      "todo": "hello"
-    },
-    {
-      "id": 28,
-      "todo": "chay pine jana hai ."
+      "name": "neeraj have to complte"
     }
   ]
 }
