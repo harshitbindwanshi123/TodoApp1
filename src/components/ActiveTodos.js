@@ -10,6 +10,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
+
+
  
 const ActiveTodos = (a,b) => {
 
@@ -26,12 +28,14 @@ const ActiveTodos = (a,b) => {
   };
 
     const [todos,setTodos]=useState([])    
+    const [todosAll,setTodosAll]=useState([])  
     const [name,setName]=useState("")
     const [loading, setLoading] = useState(true);
     const BASE_URL='http://localhost:8000/todos'
     const [editValue,setEditValue]=useState("")
     const [id,setId]=useState(0)
     const [open, setOpen] = React.useState(false);
+    const [searchText,setSearchText]=useState('')
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -41,17 +45,24 @@ const ActiveTodos = (a,b) => {
       getTodos();
     },[])
 
+
+
+
      const getTodos=()=>
      {
       axios.get('http://localhost:8000/todos')
       .then((response) => {       
         setTodos(response.data);
+        setTodosAll(response.data)
         console.log(response.data)        
       })
       .catch((error) => {       
         console.error('Error fetching data:', error);        
       });
      }
+
+
+     
 
 
     const addTodo = () => {             
@@ -104,13 +115,24 @@ const handleEditButton = (id,name) => {
   handleOpen();
  }
 
+ const search=(e)=>
+ {
+  console.log(e.target.value)
+  const searchText = e.target.value;
+  const filteredTodos = todosAll.filter((item) =>item.name.includes(searchText));
+  setSearchText(e.target.value);
+  setTodos(filteredTodos)
+ }
 
   return (
     <div className='todos_main'>
 <TextField  label="Todo" variant="outlined" value={name} onChange={(e)=>setName(e.target.value)} />
-
+ 
         <button onClick={()=>addTodo()}>Add</button>
-        <div className="todos">
+
+       <div><TextField  label="Search" variant="outlined" value={searchText} onChange={(e)=>search(e)} />
+      </div>  
+       <div className="todos">
         {
             todos.map((item ,index)=>
                      
